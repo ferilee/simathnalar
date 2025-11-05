@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Si MathNalar - Revolusi Pembelajaran Matematika SMK</title>
+    <!-- Memuat Tailwind CSS dari CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat Lucide Icons untuk ikon yang bersih -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Mengatur font dasar dan warna tema gelap */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712; /* Hampir hitam */
+            color: #f9fafb; /* Teks putih */
+        }
+        .text-gradient {
+            background-image: linear-gradient(to right, #6366f1, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+        /* Custom styling untuk kartu fitur */
+        .feature-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+            border-color: #4f46e5;
+        }
+        /* Styling untuk Hero Section (sedikit gradasi gelap) */
+        .hero-bg {
+            background-color: #030712;
+            background-image: radial-gradient(at 0% 0%, #1e3a8a 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, #4f46e5 0px, transparent 60%);
+            background-blend-mode: overlay;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-gray-950/90 backdrop-blur-sm shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-indigo-400">Si Math<span class="text-white">Nalar</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hero" class="text-gray-300 hover:text-white transition duration-200 font-medium">Beranda</a>
+                    <a href="#fitur" class="text-gray-300 hover:text-white transition duration-200 font-medium">Materi</a>
+                    <a href="#guru" class="text-gray-300 hover:text-white transition duration-200 font-medium">Dashboard Guru</a>
+                    <a href="#kontak" class="text-gray-300 hover:text-white transition duration-200 font-medium">Kontak</a>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-indigo-400 font-medium transition duration-200">Masuk</a>
+                    <a href="#" class="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-200">Daftar Guru</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex md:hidden">
+                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Buka menu utama</span>
+                        <!-- Icon when menu is closed -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Icon when menu is open -->
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#hero" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-800">Beranda</a>
+                <a href="#fitur" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800">Materi</a>
+                <a href="#guru" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800">Dashboard Guru</a>
+                <a href="#kontak" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800">Kontak</a>
+            </div>
+            <div class="pt-4 pb-3 border-t border-gray-700">
+                <div class="px-2 space-y-1">
+                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800">Masuk</a>
+                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium bg-indigo-600 text-white hover:bg-indigo-700">Daftar Guru</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="hero-bg pt-16 pb-24 md:pt-24 md:pb-36 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <!-- Content Kiri -->
+            <div class="text-center md:text-left">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-4">
+                    <span class="block text-indigo-400">Si MathNalar</span>
+                    Revolusioner Pembelajaran Matematika untuk <span class="text-gradient">Siswa SMK</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 mb-8">
+                    Setiap materi dikurasi oleh guru matematika SMK yang berpengalaman untuk memperkuat kompetensi teknis sekaligus mengasah kemampuan berpikir kritis yang dibutuhkan di era industri 4.0.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+                    <a href="#fitur" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-xl shadow-lg text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300">
+                        Mulai Nalar
+                    </a>
+                    <a href="#guru" class="inline-flex items-center justify-center px-8 py-3 border-2 border-indigo-500 text-base font-medium rounded-xl shadow-lg text-indigo-400 bg-gray-900 hover:bg-gray-800 transition duration-300">
+                        Tentang Kami
+                    </a>
+                </div>
+            </div>
+
+            <!-- Illustration Kanan (Placeholder untuk mengganti gambar) -->
+            <div class="hidden md:flex justify-center items-center relative">
+                <!-- Placeholder Ilustrasi Matematika -->
+                <div class="w-full max-w-lg p-10 bg-gray-800/50 backdrop-blur-sm rounded-[3rem] border border-indigo-700/50 shadow-[0_0_80px_rgba(79,70,229,0.3)]">
+                    <div class="text-indigo-400 flex flex-col items-center space-y-6">
+                        <i data-lucide="calculator" class="w-20 h-20"></i>
+                        <div class="text-center space-y-2">
+                            <h3 class="text-xl font-bold text-white">Konsep Kritis</h3>
+                            <p class="text-gray-400 text-sm">Fokus pada konsep yang relevan dengan dunia kerja SMK.</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 w-full">
+                            <div class="bg-gray-900 p-4 rounded-xl text-center border border-indigo-600/50">
+                                <i data-lucide="function-square" class="w-6 h-6 mx-auto text-indigo-500"></i>
+                                <span class="block text-sm font-semibold mt-1">Fungsi</span>
+                            </div>
+                            <div class="bg-gray-900 p-4 rounded-xl text-center border border-indigo-600/50">
+                                <i data-lucide="bar-chart-2" class="w-6 h-6 mx-auto text-indigo-500"></i>
+                                <span class="block text-sm font-semibold mt-1">Statistika</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Feature Section: Layanan Utama -->
+    <section id="fitur" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-16">
+                Layanan Utama Si MathNalar
+            </h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- Feature 1: Asah Nalar -->
+                <div class="feature-card p-6 bg-gray-800 rounded-2xl text-center border border-transparent hover:border-indigo-500">
+                    <i data-lucide="brain-circuit" class="w-10 h-10 text-indigo-400 mx-auto mb-3"></i>
+                    <h3 class="font-semibold text-lg text-white">Asah Nalar</h3>
+                    <p class="text-gray-400 text-sm mt-1">Latihan berpikir kritis yang mendalam.</p>
+                </div>
+
+                <!-- Feature 2: Gamifikasi -->
+                <div class="feature-card p-6 bg-gray-800 rounded-2xl text-center border border-transparent hover:border-indigo-500">
+                    <i data-lucide="gamepad-2" class="w-10 h-10 text-indigo-400 mx-auto mb-3"></i>
+                    <h3 class="font-semibold text-lg text-white">Gamifikasi</h3>
+                    <p class="text-gray-400 text-sm mt-1">Belajar jadi menyenangkan dan kompetitif.</p>
+                </div>
+
+                <!-- Feature 3: Konsep Kritis -->
+                <div class="feature-card p-6 bg-gray-800 rounded-2xl text-center border border-transparent hover:border-indigo-500">
+                    <i data-lucide="lightbulb" class="w-10 h-10 text-indigo-400 mx-auto mb-3"></i>
+                    <h3 class="font-semibold text-lg text-white">Konsep Inti</h3>
+                    <p class="text-gray-400 text-sm mt-1">Materi kurasi relevan dengan kompetensi SMK.</p>
+                </div>
+
+                <!-- Feature 4: Akses Responsif -->
+                <div class="feature-card p-6 bg-gray-800 rounded-2xl text-center border border-transparent hover:border-indigo-500">
+                    <i data-lucide="smartphone" class="w-10 h-10 text-indigo-400 mx-auto mb-3"></i>
+                    <h3 class="font-semibold text-lg text-white">Akses Penuh</h3>
+                    <p class="text-gray-400 text-sm mt-1">Optimal di smartphone, tablet, dan PC.</p>
+                </div>
+
+                <!-- Feature 5: Analisis Topik -->
+                <div class="feature-card p-6 bg-gray-800 rounded-2xl text-center border border-transparent hover:border-indigo-500">
+                    <i data-lucide="trending-up" class="w-10 h-10 text-indigo-400 mx-auto mb-3"></i>
+                    <h3 class="font-semibold text-lg text-white">Analisis Topik</h3>
+                    <p class="text-gray-400 text-sm mt-1">Analisis mendalam per topik pembelajaran.</p>
+                </div>
+
+                <!-- Feature 6: Dashboard Guru -->
+                <div class="feature-card p-6 bg-gray-800 rounded-2xl text-center border border-transparent hover:border-indigo-500">
+                    <i data-lucide="monitor" class="w-10 h-10 text-indigo-400 mx-auto mb-3"></i>
+                    <h3 class="font-semibold text-lg text-white">Dashboard Guru</h3>
+                    <p class="text-gray-400 text-sm mt-1">Monitoring progres kelas secara real-time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Guru Section -->
+    <section id="guru" class="py-24 bg-gray-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <!-- Content Kiri -->
+            <div>
+                <span class="text-indigo-400 font-semibold uppercase tracking-wider block mb-2">Untuk Pengajar</span>
+                <h2 class="text-4xl font-bold mb-6">
+                    Dashboard Guru: Kendalikan Progress Kelas Anda
+                </h2>
+                <p class="text-gray-400 text-lg mb-8">
+                    Dashboard lengkap ini dirancang untuk guru SMK. Fitur monitoring progress kelas, analisis kemampuan siswa per topik, dan alat untuk menilai pemahaman nalar matematika peserta didik tersedia dalam satu tempat.
+                </p>
+
+                <div class="space-y-4">
+                    <!-- Feature item 1 -->
+                    <div class="flex items-start space-x-4">
+                        <i data-lucide="bar-chart-3" class="w-6 h-6 text-indigo-500 flex-shrink-0 mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-white">Analisis Kemampuan</h4>
+                            <p class="text-gray-400 text-sm">Lihat kemampuan siswa secara detail di setiap kompetensi teknis.</p>
+                        </div>
+                    </div>
+                    <!-- Feature item 2 -->
+                    <div class="flex items-start space-x-4">
+                        <i data-lucide="gauge" class="w-6 h-6 text-indigo-500 flex-shrink-0 mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-white">Monitoring Real-Time</h4>
+                            <p class="text-gray-400 text-sm">Lacak aktivitas dan progres belajar siswa Anda secara langsung.</p>
+                        </div>
+                    </div>
+                    <!-- Feature item 3 -->
+                    <div class="flex items-start space-x-4">
+                        <i data-lucide="ruler" class="w-6 h-6 text-indigo-500 flex-shrink-0 mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-white">Alat Penilaian Nalar</h4>
+                            <p class="text-gray-400 text-sm">Instrumen khusus untuk mengukur kedalaman nalar matematika.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="mt-10 inline-block px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition duration-300">
+                    Pelajari Dashboard Guru
+                </a>
+            </div>
+
+            <!-- Visualisasi Dashboard (Mockup Card) -->
+            <div class="flex justify-center p-6 bg-gray-800 rounded-3xl border border-indigo-700/50 shadow-2xl">
+                <div class="w-full bg-gray-900 rounded-2xl p-6 space-y-4 border border-gray-700/50">
+                    <div class="flex justify-between items-center border-b border-indigo-500/50 pb-3">
+                        <h3 class="text-xl font-bold text-indigo-400">Progress Kelas X TKJ 1</h3>
+                        <span class="text-sm text-gray-500">Aktif: 28/32 Siswa</span>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <i data-lucide="activity" class="w-6 h-6 text-green-400 mx-auto"></i>
+                            <p class="text-2xl font-bold mt-1">85%</p>
+                            <p class="text-xs text-gray-400">Rata-rata Nilai</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <i data-lucide="clock" class="w-6 h-6 text-yellow-400 mx-auto"></i>
+                            <p class="text-2xl font-bold mt-1">4.5h</p>
+                            <p class="text-xs text-gray-400">Waktu Belajar/Minggu</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-xl">
+                            <i data-lucide="cpu" class="w-6 h-6 text-red-400 mx-auto"></i>
+                            <p class="text-2xl font-bold mt-1">3</p>
+                            <p class="text-xs text-gray-400">Topik Lemah</p>
+                        </div>
+                    </div>
+                    <div class="h-40 bg-gray-800 rounded-xl flex items-center justify-center border border-indigo-500/30">
+                        <p class="text-gray-500 italic">Grafik Analisis Nalar Siswa (Mockup)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Tagline -->
+    <footer id="kontak" class="py-12 bg-gray-950 border-t border-indigo-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl md:text-3xl font-bold text-gradient mb-4">
+                Matematika Bukan untuk Dihafal, Tapi untuk Dimengerti.
+            </h3>
+            <h4 class="text-xl md:text-2xl font-semibold text-gray-300 mb-6">
+                Nalar Bukan Bawaan, Tapi Diasah.
+            </h4>
+            <p class="text-lg text-indigo-400 font-medium">
+                Bersama Si MathNalar, Jadilah SMK yang Berpikir Kritis dan Siap Kerja!
+            </p>
+            <div class="mt-8 border-t border-gray-800 pt-8">
+                <p class="text-gray-500 text-sm">&copy; 2025 Si MathNalar. Seluruh Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk fungsionalitas menu mobile dan ikon Lucide -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inisialisasi Lucide Icons
+            lucide.createIcons();
+
+            // Logika Menu Mobile
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIconClosed = menuButton.querySelector('svg:first-child');
+            const menuIconOpen = menuButton.querySelector('svg:last-child');
+
+            menuButton.addEventListener('click', () => {
+                const isExpanded = menuButton.getAttribute('aria-expanded') === 'true' || false;
+                menuButton.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+                menuIconClosed.classList.toggle('hidden');
+                menuIconOpen.classList.toggle('hidden');
+            });
+            
+            // Tutup menu mobile ketika link diklik
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                         menuButton.click(); // Mensimulasikan klik tombol untuk menutup
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
